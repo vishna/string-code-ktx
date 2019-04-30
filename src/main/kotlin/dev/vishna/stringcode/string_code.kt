@@ -71,3 +71,14 @@ fun String?.saveAs(path: String) {
 
     File(path).writeText(text = this)
 }
+
+/**
+ * Loads file located in resources as String
+ */
+fun String.asResource() : String {
+    return if (!this.startsWith("/")) {
+        "/${this}".asResource()
+    } else {
+        this.javaClass::class.java.getResource(this).readText()
+    }
+}

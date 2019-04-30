@@ -37,4 +37,10 @@ class StringCodeTests {
         "imageFilterButton".smartCamelize() `should be equal to` "ImageFilterButton"
         "__image_filter_button".smartCamelize() `should be equal to` "ImageFilterButton"
     }
+
+    @Test
+    fun `String asResource - loading text file from resources` () {
+        "test_resource.txt".asResource() `should be equal to` "This are contents of the test resource file."
+        "/test_resource.txt".asResource() `should be equal to` "This are contents of the test resource file."
+    }
 }
